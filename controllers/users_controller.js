@@ -11,6 +11,8 @@ module.exports.signUp = function(req, res){
 
 // render sign in page
 module.exports.signIn = function(req, res){
+    console.log(req.cookies);
+    res.cookie('user_id',25);
     return res.render('user_sign_in', {
         title: 'Codeial | Sign In'
     })
