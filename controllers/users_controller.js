@@ -1,7 +1,24 @@
 const User = require('../models/user')
 
-module.exports.profile = function(req,res){
-    res.end('<h1>User Profile</h1>');
+module.exports.profile = async function(req,res){
+    try{
+
+    // fetching userId from cookies
+    let userId = req.cookies.user_id;
+
+    // getting user from database
+    let user = await User.findById(userId);
+
+    // rendering page with user details
+    return res.render('user_profile',{
+      title: "User Profile",
+      user_name: user.name,
+      user_email: user.email
+    })
+    }catch(err)
+    {
+      console.log("Error",err);
+    }
 } 
 
 // render sign up page
