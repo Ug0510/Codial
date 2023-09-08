@@ -8,3 +8,6 @@
 * MongoDb
 * Ejs
 * Cookie-parser
+* Passport js 
+```npm install passport```
+```npm install passport-local```
