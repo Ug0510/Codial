@@ -9,3 +9,10 @@ header{
     width: fit-content;
     margin: auto;
 }
+
+footer{
+    text-align: center;
+    color:white;
+    background-color: rgba(0,0,0,0.6);
+    padding: 1rem;
+}
