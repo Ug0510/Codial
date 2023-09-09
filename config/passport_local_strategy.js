@@ -1,7 +1,7 @@
 const passport = require('passport');
-const User = require('../models/user');
-
 const LocalStrategy = require('passport-local').Strategy;
+
+const User = require('../models/user');
 
 // Authentication using passport
 passport.use(new LocalStrategy({
@@ -16,7 +16,7 @@ passport.use(new LocalStrategy({
                 console.log("Invalid Username/Password");
                 return done(null,false);
             }
-            return(null,user);
+            return done(null,user);
        }
        catch(err)
        {
