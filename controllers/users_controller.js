@@ -79,3 +79,17 @@ module.exports.createSession = function(req, res){
   return res.redirect('/users/profile');
   
 }
+
+
+// Sign out and destroy session
+module.exports.destroySession = function (req, res) {
+    // Use Passport.js's logout() function to log the user out
+    req.logout(function (err) {
+      if (err) {
+        console.error('Error logging out:', err);
+        return next(err);
+      }
+      // Redirect to a desired page after logout, or send a success message
+      res.redirect('/'); // You can change the redirection URL as needed
+    });
+  };

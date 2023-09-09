@@ -1,4 +1,22 @@
  <!-- This is called Partials  -->
 <header>
     Website Header
+
+    <ul>
+        <% if(locals.user) { %>
+            <li>
+                <a href="/users/profile"><%= user.name %></a>
+            </li>
+            <li>
+                <a href="/users/sign-out">Sign Out</a>
+            </li>
+        <% }else{ %>
+            <li>
+                <a href="/users/sign-in">Sign in</a>
+            </li>
+            <li>
+                <a href="/users/sign-out">Sign out</a>
+            </li>
+        <% } %>
+    </ul>
 </header>
