@@ -90,6 +90,6 @@ module.exports.destroySession = function (req, res) {
         return next(err);
       }
       // Redirect to a desired page after logout, or send a success message
-      res.redirect('/'); // You can change the redirection URL as needed
+      res.redirect('/'); 
     });
   };
