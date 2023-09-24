@@ -2,7 +2,9 @@ header {
   background-color: #2a9df4;
   display: flex;
   justify-content: space-between;
-  width: 100%; }
+  width: 100%;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box; }
   header p {
     color: #020002;
     font-family: monospace;
@@ -10,6 +12,16 @@ header {
     font-size: 2rem; }
   header ul {
     list-style-type: none;
-    background-color: red; }
+    display: flex;
+    justify-content: center;
+    align-items: center; }
     header ul li {
-      display: inline-block; }
+      font-weight: 600; }
+      header ul li a {
+        text-decoration: none;
+        color: white; }
+      header ul li a:hover {
+        color: yellow;
+        transition: all 1s; }
+    header ul li:first-child {
+      margin-right: 1rem; }

@@ -3,6 +3,8 @@ header{
     display: flex;
     justify-content: space-between;
     width: 100%;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
     p{
         color: #020002;
         font-family: monospace;
@@ -11,9 +13,22 @@ header{
     }
     ul{
         list-style-type: none;
-        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         li{
-            display: inline-block;
+            font-weight: 600;
+            a{
+                text-decoration: none;
+                color: white;
+            }
+            a:hover{
+                color:yellow;
+                transition: all 0.5s ;
+            }
+        }
+        li:first-child{
+            margin-right:1rem;
         }
     }
 }
