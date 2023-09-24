@@ -4,6 +4,7 @@ const app = express();
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
+const path = require('path');
 
 // used for session cookie
 const session = require('express-session');
@@ -13,8 +14,8 @@ const MongoStore = require('connect-mongo');
 const sassMiddleware = require('node-sass-middleware');
 
 app.use(sassMiddleware({
-    src: '/assests/scss',
-    dest: '/assests/css',
+    src: './assets/scss',
+    dest: './assets/css',
     debug: true,
     outputStyle:'extended',
     prefix: '/css'  
@@ -22,7 +23,7 @@ app.use(sassMiddleware({
 app.use(express.urlencoded());
 app.use(cookieParser());
 
-app.use(express.static('./assets'));
+app.use(express.static(path.join(__dirname,'assests')));
 app.use(expressLayouts);
 
 app.set('layout extractStyles',true);

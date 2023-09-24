@@ -1,0 +1,19 @@
+header{
+    background-color: #2a9df4;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    p{
+        color: #020002;
+        font-family: monospace;
+        font-weight: 600;
+        font-size: 2rem;
+    }
+    ul{
+        list-style-type: none;
+        background-color: red;
+        li{
+            display: inline-block;
+        }
+    }
+}

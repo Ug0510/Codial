@@ -1,0 +1,15 @@
+header {
+  background-color: #2a9df4;
+  display: flex;
+  justify-content: space-between;
+  width: 100%; }
+  header p {
+    color: #020002;
+    font-family: monospace;
+    font-weight: 600;
+    font-size: 2rem; }
+  header ul {
+    list-style-type: none;
+    background-color: red; }
+    header ul li {
+      display: inline-block; }
