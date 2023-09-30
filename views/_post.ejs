@@ -26,17 +26,7 @@
         <ul> Comments:
             <br>
         <% for (comment of posts.comments){ %>
-            <li>
-                <%= comment.content %> by <%= comment.user.name %> 
-                <% if (locals.user && locals.user.id == comment.user.id) { %>
-                    <form action="/comments/destroy/<%= comment.id %>" method="POST">
-                        <small>
-                            <input type="submit" value="Delete">
-                        </small>
-                    </form>
-                <% } %>
-
-            </li>
+            <%- include('_comment') -%>
         <% } %>
         </ul>
     </div>
