@@ -19,16 +19,10 @@ module.exports.create = async function(req, res) {
             user: req.user._id,
             post: post._id            
         });
-        console.log(comment);
 
         // Adding comment to the post comment array
         post.comments.push(comment);
         await post.save();
-
-
-        console.log(post);
-
-        
         // Handle the case where the post is created successfully
         // You can choose to redirect to a different page or do something else here.
         // For example, you can redirect to the newly created post's page.
@@ -36,5 +30,25 @@ module.exports.create = async function(req, res) {
     } catch (err) {
         console.error(err);
         return res.redirect('back');
+    }
+};
+
+
+module.exports.destroy = async function(req, res){
+    try{
+        const comment = await Comment.findById(req.params.id);
+        if(comment.user == req.user.id){
+            //storing the post id from comment
+            let postId = comment.post;
+            // deleting the comment 
+            await comment.deleteOne();
+            // removing comment from post 
+            await Post.findByIdAndUpdate(postId, {
+                $pull: { comments: req.params.id}
+            })
+            return res.redirect('back');
+        }
+    }catch(err){
+        console.log(err);
     }
 };

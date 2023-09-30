@@ -44,6 +44,21 @@
                         <% for (comment of posts.comments){ %>
                             <li>
                                 <%= comment.content %> by <%= comment.user.name %> 
+                                <!-- <% if(locals.user && comment.user.id == locals.user.id) { %>
+                                    <form action="/comments/destroy/<%= comment._id %>" method="POST">
+                                        <small>
+                                            <input type="submit" value="Delete Comment">
+                                        </small>
+                                    </form>
+                                <%}%> -->
+                                <% if (locals.user && locals.user.id == comment.user.id) { %>
+                                    <form action="/comments/destroy/<%= comment.id %>" method="POST">
+                                        <small>
+                                            <input type="submit" value="Delete">
+                                        </small>
+                                    </form>
+                                <% } %>
+
                             </li>
                         <% } %>
                         </ul>

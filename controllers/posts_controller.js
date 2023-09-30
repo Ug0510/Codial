@@ -20,13 +20,10 @@ module.exports.create = async function(req, res) {
 
 module.exports.destroy = async function(req, res) {
     try {
-        console.log('hi')
         const post = await Post.findById(req.params.id);
-        console.log(post);
         // .id means converting the object id into a string
         if (post.user.equals(req.user.id)) {
             // Delete the post and associated comments
-            // await Post.deleteOne({_id: post.id});
             await post.deleteOne();
             await Comment.deleteMany({
                 post: req.params.id
