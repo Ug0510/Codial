@@ -17,6 +17,20 @@ module.exports.profile = async function(req,res){
     
 } 
 
+// update user details
+module.exports.update = async function(req,res){
+    try{
+        if(req.user.id == req.params.id)
+        {
+            await User.findByIdAndUpdate(req.params.id , req.body);
+            return res.redirect('back');
+        }
+
+    }catch(err){
+        console.log(err);
+    }
+}
+
 // render sign up page
 module.exports.signUp = function(req, res){
     
@@ -104,3 +118,5 @@ module.exports.destroySession = function (req, res) {
       res.redirect('/'); 
     });
   };
+
+
