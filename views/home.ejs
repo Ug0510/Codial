@@ -11,6 +11,16 @@
     </form>
     <% } %>
 
+    <div id="users-list">
+        <ul>
+            <% for(user of allusers){ %>
+                <li>
+                    <a href="/users/profile/<%= user.id %>"><%= user.name %></a>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+
     <div id="posts-list-container">
         <ul >
             <% for(posts of posts){ %>
