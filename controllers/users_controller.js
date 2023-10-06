@@ -37,7 +37,7 @@ module.exports.signUp = function(req, res){
     // check if user is already signed in
     if(req.isAuthenticated())
     {
-        return res.redirect('/users/profile');
+        return res.redirect('/');
     }
     return res.render('user_sign_up', {
         title: 'Codeial | Sign Up'
@@ -49,8 +49,11 @@ module.exports.signIn = function(req, res){
     // check if user is already signed in
     if(req.isAuthenticated())
     {
-        return res.redirect('/users/profile');
+
+        req.flash('success','Logged in successfully!');
+        return res.redirect('/');
     }
+
     return res.render('user_sign_in',{
         title: 'Codeial | Sign In'
     })
@@ -114,6 +117,7 @@ module.exports.destroySession = function (req, res) {
         console.error('Error logging out:', err);
         return next(err);
       }
+      req.flash('success','You have logged out!');
       // Redirect to a desired page after logout, or send a success message
       res.redirect('/'); 
     });
