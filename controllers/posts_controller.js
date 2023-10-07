@@ -30,7 +30,7 @@ module.exports.destroy = async function(req, res) {
                 post: req.params.id
             });
         }
-        req.flash('success','Post deleted successfully!');
+        req.flash('success','Post deleted successfully!')
         return res.redirect('back');
     } catch (err) {
         console.log(err);
