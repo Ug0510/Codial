@@ -11,9 +11,10 @@ module.exports.create = async function(req, res) {
         // Handle the case where the post is created successfully
         // You can choose to redirect to a different page or do something else here.
         // For example, you can redirect to the newly created post's page.
-        return res.redirect(`back`);
+        req.flash('success','Post published!');
+        return res.redirect('back');
     } catch (err) {
-        console.error(err);
+        req.flash('error',err)
         return res.redirect('back');
     }
 };
@@ -29,6 +30,7 @@ module.exports.destroy = async function(req, res) {
                 post: req.params.id
             });
         }
+        req.flash('success','Post deleted successfully!');
         return res.redirect('back');
     } catch (err) {
         console.log(err);
