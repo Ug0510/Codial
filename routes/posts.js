@@ -5,7 +5,7 @@ const passport = require('passport');
 
 router.post('/create',passport.checkAuthentication,postController.create);
 // Define a route for deleting a post using POST
-router.post('/destroy/:id', passport.checkAuthentication, postController.destroy);
+router.get('/destroy/:id', passport.checkAuthentication, postController.destroy);
 
 
 module.exports = router;

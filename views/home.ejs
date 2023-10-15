@@ -13,9 +13,9 @@
 
     <div id="users-list">
         <ul>
-            <% for(user of allusers){ %>
+            <% for(users of allusers){ %>
                 <li>
-                    <a href="/users/profile/<%= user.id %>"><%= user.name %></a>
+                    <a href="/users/profile/<%= user.id %>"><%= users.name %></a>
                 </li>
             <% } %>
         </ul>
@@ -23,7 +23,7 @@
 
     <div id="posts-list-container">
         <ul >
-            <% for(posts of posts){ %>
+            <% for(post of posts){ %>
                 <%- include ('_post') -%>
             <% } %>
         </ul>
