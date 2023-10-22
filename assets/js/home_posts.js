@@ -13,6 +13,12 @@
                 success: function(data){
                     let newPost = newPostDom(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost);
+
+                    // showing message on post creation
+                    if(data.message)
+                    {
+                        displayFlashMessage(data.message,'success');
+                    }
                 }, error: function(error){
                     console.log(error.responseText);
                 }
