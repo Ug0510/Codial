@@ -23,6 +23,18 @@ module.exports.create = async function(req, res) {
         // Adding comment to the post comment array
         post.comments.push(comment);
         await post.save();
+
+        if(req.xhr)
+        {
+            return res.status(200).json({
+                data:{
+                    comment: comment
+                },
+                message: "Comment created"
+            })
+        }
+
+
         // Handle the case where the post is created successfully
         // You can choose to redirect to a different page or do something else here.
         // For example, you can redirect to the newly created post's page.

@@ -92,16 +92,7 @@
     });
 
 
-    // Function to create a flash message
-    function displayFlashMessage(message, type) {
-        new Noty({
-            text: message,
-            type: type, // Change this to match your message type (success, error, warning, etc.)
-            timeout: 3000, // Adjust the timeout as needed
-            progressBar: true, // Display a progress bar
-            closeWith: ['click', 'button'], // Close the notification when clicked or using the close button
-        }).show();
-    }
+    
 
     createPost();
 }
