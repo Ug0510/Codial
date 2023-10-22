@@ -7,6 +7,8 @@ module.exports.create = async function(req, res) {
             content: req.body.content,
             user: req.user._id
         });
+        // populating post with user to show user name when post is added
+        post = await post.populate('user');
         
         if(req.xhr)
         {
@@ -34,21 +36,6 @@ module.exports.destroy = async function(req, res) {
     try {
         const post = await Post.findById(req.params.id);
 
-
-        
-        if(req.xhr)
-        {
-            console.log('here');
-            return res.status(200).json({
-                data:{
-                    post_id: req.params.id
-                },
-                message: "Post deleted "
-            })
-        }
-
-        console.log('not okay');
-
         // .id means converting the object id into a string
         if (post.user.equals(req.user.id)) {
             // Delete the post and associated comments
@@ -57,6 +44,20 @@ module.exports.destroy = async function(req, res) {
                 post: req.params.id
             });
         }
+        
+        // check if request made using ajax then return the staus 200 with post id
+        if(req.xhr)
+        {
+            return res.status(200).json({
+                data:{
+                    post_id: req.params.id
+                },
+                message: "Post deleted"
+            })
+        }
+
+
+        
         req.flash('success','Post deleted successfully!')
         return res.redirect('back');
     } catch (err) {
