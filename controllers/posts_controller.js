@@ -8,7 +8,11 @@ module.exports.create = async function(req, res) {
             user: req.user._id
         });
         // populating post with user to show user name when post is added
-        post = await post.populate('user');
+        post = await post.populate({
+            path: 'user',
+            select: 'name email createdAt updatedAt'
+        });
+        console.log(post);
         
         if(req.xhr)
         {
