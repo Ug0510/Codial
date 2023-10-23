@@ -17,7 +17,7 @@
                     let newComment = newPostComment(data.data.comment);
 
                     // check what's wrong here 
-                    $(`#post-comments-list-${postId}>ul`).prepend(newComment);
+                    $(`#post-comments-list-${postId}>ul br`).after(newComment);
                     deletePostComment();
                     if(data.message)
                     {
