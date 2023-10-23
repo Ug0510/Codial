@@ -15,8 +15,6 @@ module.exports.home = async function(req,res){
         options: { sort: { createdAt: -1 } }
     });
     
-
-        console.log(posts);
          
         const user = await User.find({});
         

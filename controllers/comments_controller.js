@@ -20,10 +20,15 @@ module.exports.create = async function(req, res) {
             post: post._id            
         });
 
+        
         // Adding comment to the post comment array
         post.comments.push(comment);
         await post.save();
 
+        await comment.populate({
+            path:'user',
+            option: 'name'
+        });
         if(req.xhr)
         {
             return res.status(200).json({
@@ -59,6 +64,17 @@ module.exports.destroy = async function(req, res){
             await Post.findByIdAndUpdate(postId, {
                 $pull: { comments: req.params.id}
             })
+
+
+            if(req.xhr)
+            {
+                return res.status(200).json({
+                    data:{
+                        commentId: comment.id
+                    },
+                    message: 'Comment delete Successfully'
+                });
+            }
             return res.redirect('back');
         }
     }catch(err){
