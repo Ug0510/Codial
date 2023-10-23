@@ -22,12 +22,28 @@ module.exports.update = async function(req,res){
     try{
         if(req.user.id == req.params.id)
         {
-            await User.findByIdAndUpdate(req.params.id , req.body);
+            let user = await User.findByIdAndUpdate(req.params.id);
+            User.uploadedAvatar(req,res,function(err)
+            {
+                // handling error
+                if(err){console.log(err);}
+
+                user.name = req.body.name;
+                user.email = req.body.email;
+
+                if(req.file)
+                {
+                    //this is saving the path of the uploaded file into the avatar field in the user
+                    user.avatar = User.avatarPath + '/' + req.file.filename;
+                }
+                user.save();
+            });
             return res.redirect('back');
         }
 
     }catch(err){
         console.log(err);
+        return res.redirect('back');
     }
 }
 
