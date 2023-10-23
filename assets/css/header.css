@@ -1,27 +1,29 @@
 header {
-  background-color: #2a9df4;
+  background-color: var(--primary-background);
   display: flex;
   justify-content: space-between;
   width: 100%;
   padding: 0.5rem 1rem;
   box-sizing: border-box; }
   header p {
-    color: #020002;
+    color: white;
     font-family: monospace;
     font-weight: 600;
     font-size: 2rem; }
+    header p span {
+      color: yellow; }
   header ul {
     list-style-type: none;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    text-transform: capitalize; }
     header ul li {
       font-weight: 600; }
       header ul li a {
         text-decoration: none;
         color: white; }
       header ul li a:hover {
-        color: yellow;
-        transition: all 0.5s; }
-    header ul li:first-child {
+        border-bottom: 2px solid yellow; }
+    header ul li:not(:last-child) {
       margin-right: 1rem; }

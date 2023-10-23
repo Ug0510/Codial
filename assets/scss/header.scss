@@ -1,21 +1,27 @@
 header{
-    background-color: #2a9df4;
+    background-color: var(--primary-background);
     display: flex;
     justify-content: space-between;
     width: 100%;
     padding: 0.5rem 1rem;
     box-sizing: border-box;
+    // font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     p{
-        color: #020002;
+        // color: #020002;
+        color: white;
         font-family: monospace;
         font-weight: 600;
         font-size: 2rem;
+        span{
+            color:yellow;
+        }
     }
     ul{
         list-style-type: none;
         display: flex;
         justify-content: center;
         align-items: center;
+        text-transform: capitalize;
         li{
             font-weight: 600;
             a{
@@ -23,11 +29,11 @@ header{
                 color: white;
             }
             a:hover{
-                color:yellow;
-                transition: all 0.5s ;
+                border-bottom: 2px solid yellow;
+                
             }
         }
-        li:first-child{
+        li:not(:last-child){
             margin-right:1rem;
         }
     }

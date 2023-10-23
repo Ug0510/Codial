@@ -1,8 +1,17 @@
 body {
-  background-color: aliceblue; }
+  background-color: aliceblue;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; }
 
 h2 {
   text-align: center; }
 
 p {
   text-align: center; }
+
+.custom-heading-1 {
+  background-color: var(--primary-background);
+  color: white;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin: 1rem auto; }
